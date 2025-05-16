@@ -21,9 +21,7 @@
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "changelogen": "^0.5.7",
-    "chart.js": "^4.4.5",
-    "nuxt": "^3.17.3",
-    "vue": "latest"
+    "chart.js": "^4.4.5"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
@@ -40,7 +38,9 @@
     "wrangler": "^4.13.2",
     "@cloudflare/workers-types": "^4.20250422.0",
     "nitro-cloudflare-dev": "^0.2.2",
-    "nitropack": "^2.11.9"
+    "nitropack": "^2.11.9",
+    "nuxt": "^3.17.3",
+    "vue": "latest"
   },
   "packageManager": "yarn@1.22.22"
 }
