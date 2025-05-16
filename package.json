@@ -14,7 +14,9 @@
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:js && yarn lint:prettier",
     "lint:fix": "prettier --write --list-different . && yarn lint:js --fix",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
