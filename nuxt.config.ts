@@ -15,7 +15,16 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }));
       });
     },
+    "nitro-cloudflare-dev",
   ],
+  nitro: {
+    preset: "cloudflare_module",
+
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
+    },
+  },
   vite: {
     vue: {
       template: {
