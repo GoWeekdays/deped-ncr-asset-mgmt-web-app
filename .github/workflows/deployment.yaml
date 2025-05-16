@@ -1,0 +1,86 @@
+name: Deploy to NuxtHub
+
+on:
+  push:
+    branches:
+      - develop
+      - pre-staging
+      - staging
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to NuxtHub - ${{ github.ref_name }} by ${{ github.actor }}
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref == 'refs/heads/main' && 'production' || github.ref == 'refs/heads/staging' && 'staging' || github.ref == 'refs/heads/pre-staging' && 'pre-staging' || github.ref == 'refs/heads/develop' && 'development'}}
+      url: ${{ steps.deploy.outputs.deployment-url }}
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build application
+        run: yarn build
+        env:
+          API: ${{ vars.API }}
+          API_ORGANIZATION: ${{ vars.API_ORGANIZATION }}
+          API_FEEDBACK: ${{ vars.API_FEEDBACK }}
+          API_EVENT: ${{ vars.API_EVENT }}
+          API_CCTV: ${{ vars.API_CCTV }}
+          API_VISITOR: ${{ vars.API_VISITOR }}
+          API_ROUTE: ${{ vars.API_ROUTE }}
+          API_INCIDENT: ${{ vars.API_INCIDENT }}
+          API_STORAGE: ${{ vars.API_STORAGE }}
+          API_DOB: ${{ vars.API_DOB }}
+          API_FORMS: ${{ vars.API_FORMS }}
+          API_REAL_TIME: ${{ vars.API_REAL_TIME }}
+          API_FACILITY: ${{ vars.API_FACILITY }}
+          API_PAYMENT: ${{ vars.API_PAYMENT }}
+          API_BILLING: ${{ vars.API_BILLING }}
+          CCTV_LINK: ${{ vars.CCTV_LINK }}
+          RESIDENT_APP: ${{ vars.RESIDENT_APP }}
+          S3_BUCKET: ${{ vars.S3_BUCKET }}
+          DOMAIN: ${{ vars.DOMAIN }}
+          NODE_OPTIONS: ${{ vars.NODE_OPTIONS }}
+          GENERATE_SOURCEMAP: ${{ vars.GENERATE_SOURCEMAP }}
+          S3_BUCKET_FOLDER: ${{ vars.S3_BUCKET_FOLDER }}
+
+      # Add this step to remove invalid wrangler.json if it's generated
+      - name: Remove invalid wrangler.json
+        run: |
+          rm -f .output/server/wrangler.json
+
+      - name: Remove Cloudflare deploy config redirect
+        run: rm -f .wrangler/deploy/config.json
+
+      - name: Set Wrangler Environment
+        id: wrangler-env
+        run: |
+          if [[ "${GITHUB_REF##*/}" == "main" ]]; then echo "env=production" >> $GITHUB_OUTPUT
+          elif [[ "${GITHUB_REF##*/}" == "staging" ]]; then echo "env=staging" >> $GITHUB_OUTPUT
+          elif [[ "${GITHUB_REF##*/}" == "pre-staging" ]]; then echo "env=pre-staging" >> $GITHUB_OUTPUT
+          elif [[ "${GITHUB_REF##*/}" == "develop" ]]; then echo "env=development" >> $GITHUB_OUTPUT
+          else echo "env=development" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build & Deploy Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: deploy --env ${{ steps.wrangler-env.outputs.env }}

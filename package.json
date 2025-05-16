@@ -35,5 +35,6 @@
     "sass": "^1.79.3",
     "vite-plugin-vuetify": "^2.0.3",
     "vuetify": "^3.6.11"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }

@@ -1,0 +1,23 @@
+# Default environment
+name = "deped-ncr-asset-mgmt-web-app"
+main = "./.output/server/index.mjs"
+compatibility_date = "2025-04-22"
+compatibility_flags = ["nodejs_compat"] 
+assets = { binding = "ASSETS", directory = "./.output/public/" }
+observability = { enabled = true }
+
+[env.production]
+name = "deped-ncr-asset-mgmt-web-app"
+compatibility_date = "2025-04-22"
+
+[env.staging]
+name = "deped-ncr-asset-mgmt-web-app-staging"
+compatibility_date = "2025-04-22"
+
+[env.pre-staging]
+name = "deped-ncr-asset-mgmt-web-app-pre-staging"
+compatibility_date = "2025-04-22"
+
+[env.development]
+name = "deped-ncr-asset-mgmt-web-app-dev"
+compatibility_date = "2025-04-22"
