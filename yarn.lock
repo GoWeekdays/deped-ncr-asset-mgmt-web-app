@@ -5904,7 +5904,7 @@ nth-check@^2.0.1, nth-check@^2.1.1:
   dependencies:
     boolbase "^1.0.0"
 
-nuxt@^3.13.1:
+nuxt@^3.17.3:
   version "3.17.3"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.17.3.tgz#e6f89c755d8205eecc954083917e29b28cd59cd0"
   integrity sha512-iaRGGcnOiahdz+rhEiDY+Ep/vgsvcCCSs2tIVwKmteHEZk6O2zcpk/U1rHxPWortTyMlluHHaohC2WngYceh+g==
