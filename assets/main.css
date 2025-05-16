@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+* {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.fontgray-border {
+  border: 1px solid var(--v-theme-fontgray) !important;
+}
+.table-header {
+  background-color: #e1e1f0;
+}
+
+.responsive-card {
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.table-container {
+  max-height: calc(100vh - 64px - 220px);
+  overflow-y: auto;
+}
+
+.header-row {
+  height: calc(64px);
+}
+
+.icon-background {
+  border-radius: 50%;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-fontgray {
+  color: #7e7e7e;
+}
+
+:deep() .v-table .v-table__wrapper > table > thead > tr > th:not(:last-child) {
+  border-right: thin solid rgba(var(--v-border-color), var(--v-border-opacity));
+}
+
+:deep() .v-table .v-table__wrapper > table > tbody > tr > td:not(:last-child),
+.v-table .v-table__wrapper > table > tbody > tr > th:not(:last-child) {
+  border-right: thin solid rgba(var(--v-border-color), var(--v-border-opacity));
+}

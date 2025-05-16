@@ -1,0 +1,3 @@
+<template>
+  <asset-property />
+</template>
