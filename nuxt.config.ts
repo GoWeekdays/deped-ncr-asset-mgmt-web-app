@@ -109,6 +109,11 @@ export default defineNuxtConfig({
         secure: true,
         maxAge: 30 * 24 * 60 * 60, // 30 days
       },
+      API_AUTH: (process.env.API_AUTH as string) ?? "",
+      API_INVENTORY: (process.env.API_INVENTORY as string) ?? "",
+      API_STORAGE: (process.env.API_STORAGE as string) ?? "",
+      API_DO_STORAGE_ENDPOINT:
+        (process.env.API_DO_STORAGE_ENDPOINT as string) ?? "",
     },
   },
 });
