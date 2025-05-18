@@ -37,28 +37,11 @@ jobs:
       - name: Build application
         run: yarn build
         env:
-          API: ${{ vars.API }}
-          API_ORGANIZATION: ${{ vars.API_ORGANIZATION }}
-          API_FEEDBACK: ${{ vars.API_FEEDBACK }}
-          API_EVENT: ${{ vars.API_EVENT }}
-          API_CCTV: ${{ vars.API_CCTV }}
-          API_VISITOR: ${{ vars.API_VISITOR }}
-          API_ROUTE: ${{ vars.API_ROUTE }}
-          API_INCIDENT: ${{ vars.API_INCIDENT }}
+          API_AUTH: ${{ vars.API_AUTH }}
+          API_INVENTORY: ${{ vars.API_INVENTORY }}
           API_STORAGE: ${{ vars.API_STORAGE }}
-          API_DOB: ${{ vars.API_DOB }}
-          API_FORMS: ${{ vars.API_FORMS }}
-          API_REAL_TIME: ${{ vars.API_REAL_TIME }}
-          API_FACILITY: ${{ vars.API_FACILITY }}
-          API_PAYMENT: ${{ vars.API_PAYMENT }}
-          API_BILLING: ${{ vars.API_BILLING }}
-          CCTV_LINK: ${{ vars.CCTV_LINK }}
-          RESIDENT_APP: ${{ vars.RESIDENT_APP }}
-          S3_BUCKET: ${{ vars.S3_BUCKET }}
           DOMAIN: ${{ vars.DOMAIN }}
-          NODE_OPTIONS: ${{ vars.NODE_OPTIONS }}
-          GENERATE_SOURCEMAP: ${{ vars.GENERATE_SOURCEMAP }}
-          S3_BUCKET_FOLDER: ${{ vars.S3_BUCKET_FOLDER }}
+          API_DO_STORAGE_ENDPOINT: ${{ vars.API_DO_STORAGE_ENDPOINT }}
 
       # Add this step to remove invalid wrangler.json if it's generated
       - name: Remove invalid wrangler.json
