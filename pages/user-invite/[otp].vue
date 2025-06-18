@@ -29,7 +29,7 @@
             </v-col>
 
             <v-col cols="12">
-              <v-form ref="formRef">
+              <v-form ref="formRef" :disabled="disabledForm">
                 <v-row dense>
                   <v-col cols="12">
                     <h5 class="font-weight-medium text-h6 text-primary-text">
@@ -172,6 +172,7 @@
                     color="primary"
                     class="pa-4 py-5 d-flex text-button text-capitalize font-weight-medium"
                     @click="submitForm"
+                    :loading="loading"
                     >Create Account</v-btn
                   >
                 </v-row>
@@ -284,7 +285,12 @@ const confirmPasswordValidation = computed(() => {
   ];
 });
 
+const disabledForm = ref(false);
+const loading = ref(false);
+
 const submitForm = async () => {
+  disabledForm.value = true;
+  loading.value = true;
   const { valid } = await formRef.value.validate();
 
   if (!valid) {
@@ -316,6 +322,8 @@ const submitForm = async () => {
     }, 3000);
   } catch (error) {
     console.error("Error submitting form:", error);
+  } finally {
+    disabledForm.value = false;
   }
 };
 
