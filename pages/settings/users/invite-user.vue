@@ -137,7 +137,12 @@
                         class="my-2 text-capitalize"
                         hide-no-data
                         hide-selected
-                    /></v-col>
+                    />
+                  </v-col>
+
+                  <v-col cols=12 class="mt-4 text-error text-center">
+                    {{ message }}
+                  </v-col>
                   </v-row>
 
                   <v-row class="justify-end pa-3">
@@ -409,6 +414,8 @@ const headers: {
   { title: "Actions", value: "actions", align: "center" },
 ];
 
+const message = ref("");
+
 async function submit() {
   loading.value = true;
   const errorMessage = ref("");
@@ -425,6 +432,7 @@ async function submit() {
     closeDialog();
     _getInvitations(search.value);
   } catch (error: any) {
+    message.value = error.response._data.message ?? "Failed to send invitation";
     errorMessage.value = error.data.message;
     errorDialog.value = true;
     console.error(error);
