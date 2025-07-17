@@ -575,8 +575,6 @@ async function _createAsset() {
       throw new Error("Invalid unitOfMeasurement. Expected a string value.");
     }
 
-    console.log("Office ID being passed:", user.officeId);
-
     await createProperty({
       createdAt: asset.value.createdAt,
       name: asset.value.name,
@@ -644,8 +642,6 @@ const formattedCreatedAt = computed({
 
 async function submit() {
   loading.value = true;
-
-  console.log("Submitting asset:", asset.value);
 
   if (props.mode === "create") {
     await _createAsset();
