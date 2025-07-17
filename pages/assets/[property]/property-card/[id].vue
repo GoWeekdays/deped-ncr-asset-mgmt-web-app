@@ -324,7 +324,7 @@
                 </span>
               </template>
 
-              <template #item.amount="{ item }">
+              <template #item.cost="{ item }">
                 <span
                   :class="{
                     'text-red': [
@@ -336,7 +336,7 @@
                     ].includes((item.condition || '').toLowerCase()),
                   }"
                 >
-                  ₱&nbsp;{{ formatNumber(item.amount) }}
+                  ₱&nbsp;{{ formatNumber(item.cost) }}
                 </span>
               </template>
 
@@ -435,7 +435,7 @@ const headers = computed(() => {
     {
       title: "",
       children: [
-        { title: "Amount", value: "amount" },
+        { title: "Amount", value: "cost" },
         { title: "Remarks", value: "remarks" },
         { title: "Conditions", value: "condition", align: "center" },
         { title: "Attachment", value: "attachment" },
@@ -464,10 +464,6 @@ const fetchStocks = async () => {
       if (qty) {
         totalCost = (i.cost ?? 0) * qty; // Multiply only for total cost
       }
-
-      console.log(
-        `Item: ${i.reference}, Cost: ${i.cost}, Qty: ${qty}, Total Cost: ${totalCost}`
-      );
 
       return {
         ...i,
