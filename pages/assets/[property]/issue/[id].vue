@@ -427,13 +427,19 @@ async function submit() {
     return;
   }
 
-  const type = isPPE ? "PAR" : isSEP ? "ICS" : "";
+  if (serialNumbers.value.length === 0) {
+    snackbar.value = {
+      visible: true,
+      message: "At least one serial number is required.",
+    };
+    hideSnackbar();
+    return;
+  }
 
-  const { entityName, fundCluster } = useDefaults();
+  const type = isPPE ? "PAR" : isSEP ? "ICS" : "";
 
   const payload = {
     type,
-
     assetId: item.assetId ?? "",
     serialNo: serialNumbers.value,
     quantity: Number(item.qty),
@@ -450,7 +456,6 @@ async function submit() {
     console.error("Error submitting property issue:", error);
   }
 }
-
 const stocks = ref<Array<TStock>>([]);
 const headers = computed(() => {
   let items = [];
@@ -516,6 +521,7 @@ const headers = computed(() => {
 });
 
 const serialNumbers = ref<string[]>([]);
+
 const newSerialNumber = ref<string>("");
 const textFieldError = ref<string>("");
 
