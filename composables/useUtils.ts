@@ -104,8 +104,10 @@ export default function useUtils() {
 
       case "suspended":
       case "for-disposal":
-
+      case "stolen":
+      case "damaged":
       case "lost":
+      case "destroyed":
       case "cancelled":
         return "#BD3333";
 
