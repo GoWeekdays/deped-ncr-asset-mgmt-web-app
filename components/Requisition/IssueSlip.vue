@@ -1253,9 +1253,7 @@ const confirmIssued = async () => {
 
     if (!requisition.value?._id) throw new Error("Requisition ID is undefined");
 
-    const receivedBy = currentUser?._id;
-
-    if (!receivedBy) throw new Error("ReceivedBy user ID is undefined");
+    const receivedBy = requisition.value.requestedBy || "";
 
     await updateIssuedStatus(
       requisition.value._id,

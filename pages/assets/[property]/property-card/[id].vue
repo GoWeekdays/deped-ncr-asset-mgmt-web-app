@@ -183,9 +183,13 @@
               <template #item.unitCost="{ item }">
                 <span
                   :class="{
-                    'text-red': ['for-disposal', 'lost'].includes(
-                      (item.condition || '').toLowerCase()
-                    ),
+                    'text-red': [
+                      'for-disposal',
+                      'lost',
+                      'stolen',
+                      'damaged',
+                      'destroyed',
+                    ].includes((item.condition || '').toLowerCase()),
                   }"
                 >
                   ₱&nbsp;{{ formatNumber(item.unitCost || 0) }}
@@ -195,9 +199,13 @@
               <template #item.totalCost="{ item }">
                 <span
                   :class="{
-                    'text-red': ['for-disposal', 'lost'].includes(
-                      (item.condition || '').toLowerCase()
-                    ),
+                    'text-red': [
+                      'for-disposal',
+                      'lost',
+                      'stolen',
+                      'damaged',
+                      'destroyed',
+                    ].includes((item.condition || '').toLowerCase()),
                   }"
                 >
                   ₱&nbsp;{{ formatNumber(item.totalCost || 0) }}
@@ -207,9 +215,13 @@
               <template #item.createdAt="{ item }">
                 <span
                   :class="{
-                    'text-red': ['for-disposal', 'lost'].includes(
-                      (item.condition || '').toLowerCase()
-                    ),
+                    'text-red': [
+                      'for-disposal',
+                      'lost',
+                      'stolen',
+                      'damaged',
+                      'destroyed',
+                    ].includes((item.condition || '').toLowerCase()),
                   }"
                 >
                   {{ item.createdAt?.toLocaleString() }}
@@ -219,9 +231,13 @@
               <template #item.reference="{ item }">
                 <span
                   :class="{
-                    'text-red': ['for-disposal', 'lost'].includes(
-                      (item.condition || '').toLowerCase()
-                    ),
+                    'text-red': [
+                      'for-disposal',
+                      'lost',
+                      'stolen',
+                      'damaged',
+                      'destroyed',
+                    ].includes((item.condition || '').toLowerCase()),
                   }"
                 >
                   {{ item.reference?.toLocaleString() }}
@@ -231,9 +247,13 @@
               <template #item.serialNo="{ item }">
                 <span
                   :class="{
-                    'text-red': ['for-disposal', 'lost'].includes(
-                      (item.condition || '').toLowerCase()
-                    ),
+                    'text-red': [
+                      'for-disposal',
+                      'lost',
+                      'stolen',
+                      'damaged',
+                      'destroyed',
+                    ].includes((item.condition || '').toLowerCase()),
                   }"
                 >
                   {{ item.serialNo?.toLocaleString() }}
@@ -243,9 +263,13 @@
               <template #item.office="{ item }">
                 <span
                   :class="{
-                    'text-red': ['for-disposal', 'lost'].includes(
-                      (item.condition || '').toLowerCase()
-                    ),
+                    'text-red': [
+                      'for-disposal',
+                      'lost',
+                      'stolen',
+                      'damaged',
+                      'destroyed',
+                    ].includes((item.condition || '').toLowerCase()),
                   }"
                 >
                   {{ item.office?.toLocaleString() }}
@@ -255,9 +279,13 @@
               <template #item.ins="{ item }">
                 <span
                   :class="{
-                    'text-red': ['for-disposal', 'lost'].includes(
-                      (item.condition || '').toLowerCase()
-                    ),
+                    'text-red': [
+                      'for-disposal',
+                      'lost',
+                      'stolen',
+                      'damaged',
+                      'destroyed',
+                    ].includes((item.condition || '').toLowerCase()),
                   }"
                 >
                   {{ item.ins?.toLocaleString() }}
@@ -267,9 +295,13 @@
               <template #item.itemNo="{ item }">
                 <span
                   :class="{
-                    'text-red': ['for-disposal', 'lost'].includes(
-                      (item.condition || '').toLowerCase()
-                    ),
+                    'text-red': [
+                      'for-disposal',
+                      'lost',
+                      'stolen',
+                      'damaged',
+                      'destroyed',
+                    ].includes((item.condition || '').toLowerCase()),
                   }"
                 >
                   {{ item.itemNo?.toLocaleString() }}
@@ -279,9 +311,13 @@
               <template #item.outs="{ item }">
                 <span
                   :class="{
-                    'text-red': ['for-disposal', 'lost'].includes(
-                      (item.condition || '').toLowerCase()
-                    ),
+                    'text-red': [
+                      'for-disposal',
+                      'lost',
+                      'stolen',
+                      'damaged',
+                      'destroyed',
+                    ].includes((item.condition || '').toLowerCase()),
                   }"
                 >
                   {{ item.outs?.toLocaleString() }}
@@ -291,9 +327,13 @@
               <template #item.amount="{ item }">
                 <span
                   :class="{
-                    'text-red': ['for-disposal', 'lost'].includes(
-                      (item.condition || '').toLowerCase()
-                    ),
+                    'text-red': [
+                      'for-disposal',
+                      'lost',
+                      'stolen',
+                      'damaged',
+                      'destroyed',
+                    ].includes((item.condition || '').toLowerCase()),
                   }"
                 >
                   ₱&nbsp;{{ formatNumber(item.amount) }}
@@ -303,9 +343,13 @@
               <template #item.balance="{ item }">
                 <span
                   :class="{
-                    'text-red': ['for-disposal', 'lost'].includes(
-                      (item.condition || '').toLowerCase()
-                    ),
+                    'text-red': [
+                      'for-disposal',
+                      'lost',
+                      'stolen',
+                      'damaged',
+                      'destroyed',
+                    ].includes((item.condition || '').toLowerCase()),
                   }"
                 >
                   {{ item.balance?.toLocaleString() }}
