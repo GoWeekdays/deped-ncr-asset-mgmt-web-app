@@ -253,6 +253,15 @@
                         <span>Reason for Rescheduling:</span>
                       </v-row>
                     </v-col>
+                    <v-col cols="6" v-if="maintenance?.status == 'rescheduled'">
+                      <v-row align="center" no-gutters>
+                        <span
+                          class="text-primary-text text-capitalize text-body-2 font-weight-regular"
+                        >
+                          {{ maintenance.rescheduleReason || "N/A" }}
+                        </span>
+                      </v-row>
+                    </v-col>
                     <v-col cols="6" v-if="maintenance?.status == 'completed'">
                       <v-row
                         align="center"
