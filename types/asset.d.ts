@@ -37,6 +37,7 @@ declare type TAsset = {
   returned: number;
   transferred: number;
   forDisposal: number;
+  forRepair: number;
   lost?: number;
   stolen?: number;
   damaged?: number;

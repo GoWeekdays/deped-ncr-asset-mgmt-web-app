@@ -193,7 +193,6 @@
                   Stolen
                 </v-chip>
 
-                
                 <v-chip
                   v-if="item.damaged"
                   color="red"
@@ -203,6 +202,17 @@
                   <v-icon size="small" class="me-1">mdi-circle</v-icon
                   ><span class="font-weight-bold mr-1">{{ item.damaged }}</span>
                   Damaged
+                </v-chip>
+                
+                <v-chip
+                  v-if="item.destroyed"
+                  color="red"
+                  class="text-capitalize px-2 mx-1 my-1"
+                  size="small"
+                >
+                  <v-icon size="small" class="me-1">mdi-circle</v-icon
+                  ><span class="font-weight-bold mr-1">{{ item.destroyed }}</span>
+                  Destroyed
                 </v-chip>
               </template>
 
