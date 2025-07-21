@@ -179,6 +179,17 @@
               </v-chip>
             </div>
           </v-col>
+
+          <v-col cols="12" md="6">
+            <label class="text-fontgray text-body-2 font-weight-regular"
+              >Reason for transfer</label
+            >
+            <div
+              class="text-subtitle-1 text-primary-text text-capitalize font-weight-regular mt-1"
+            >
+              {{ transferProperty?.transferReason }}
+            </div>
+          </v-col>
         </v-row>
 
         <v-row>
