@@ -296,6 +296,12 @@
                 <template #item.isAvailable="{ item }">
                   <span class="text-capitalize">{{ item.isAvailable }}</span>
                 </template>
+
+                <template #item.description="{ item }">
+                  <span class="text-capitalize"
+                    >{{ item.name }} - {{ item.description }}</span
+                  ></template
+                >
               </v-data-table>
 
               <v-row class="mt-5">
