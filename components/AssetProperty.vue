@@ -387,13 +387,12 @@
                     v-model.number="asset.cost"
                     :rules="[requiredRule, costRangePPE]"
                     type="number"
-                    min="0"
-                    max="50000"
+                    min="50000"
                     variant="outlined"
                     density="compact"
-                    :error="costErrorSEP"
+                    :error="costErrorPPE"
                     :error-messages="
-                      costErrorSEP ? ['Cost must be above 50,000'] : []
+                      costErrorPPE ? ['Cost must be above 50,000'] : []
                     "
                   />
                 </v-col>
