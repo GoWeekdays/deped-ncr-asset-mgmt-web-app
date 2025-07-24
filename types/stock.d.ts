@@ -10,6 +10,7 @@ declare type TStock = {
   outs?: number;
   office?: string;
   balance?: number;
+  name?: string;
   qty?: number;
   unitOfMeasurement?: string[];
   receivedBy?: string;
