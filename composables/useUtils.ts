@@ -114,7 +114,7 @@ export default function useUtils() {
       case "approved":
       case "scheduled":
       case "rescheduled":
-      case "reissued":
+      case "issued":
         return "primary";
 
       case "for-review":

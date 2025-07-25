@@ -257,7 +257,7 @@ watch(PPECodes, (newVal) => {
 const itemCondition = [
   { title: "All", value: "all" },
   { title: "Good Condition", value: "good-condition" },
-  { title: "Reissued", value: "reissued" },
+  { title: "Issued", value: "issued" },
   { title: "Returned", value: "returned" },
 ];
 

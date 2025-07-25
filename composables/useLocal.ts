@@ -299,7 +299,7 @@ export default function () {
             },
           },
           {
-            title: "DepEd Divisions",
+            title: "Functional Divisions",
             icon: "mdi-bank-outline",
             route: {
               name: "settings-divisions",

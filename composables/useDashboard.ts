@@ -75,7 +75,7 @@ export default function useDashboard() {
     return {
       sepConditions: {
         goodCondition: 0,
-        reissued: 0,
+        issued: 0,
         returned: 0,
         forDisposal: 0,
         transferred: 0,
@@ -86,7 +86,7 @@ export default function useDashboard() {
       },
       ppeConditions: {
         goodCondition: 0,
-        reissued: 0,
+        issued: 0,
         returned: 0,
         forDisposal: 0,
         transferred: 0,

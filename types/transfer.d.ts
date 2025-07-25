@@ -64,7 +64,7 @@ declare type TTransferRead = Pick<
 
 declare type TTransferStatus = "pending" | "approved" | "completed";
 
-declare type TTransferCondition = "reissued" | "good-condition" | "returned";
+declare type TTransferCondition = "issued" | "good-condition" | "returned";
 declare type TAssetType = "SEP" | "PPE";
 
 declare type TTransferPropertyType =

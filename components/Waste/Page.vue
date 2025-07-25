@@ -740,7 +740,7 @@ const wasteTypeOptions = [
 
 const selectedWasteType = ref<TWasteType | null>();
 const conditionOptions = [
-  { title: "Reissued", value: "reissued" },
+  { title: "Issued", value: "issued" },
   { title: "Good Condition", value: "good-condition" },
   { title: "Returned", value: "returned" },
 ];

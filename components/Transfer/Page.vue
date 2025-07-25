@@ -995,7 +995,7 @@ const selectedItemNo = ref();
 const itemOptions = ref<Array<TSearchItem>>([]);
 const stockItemOptions = ref<Array<TStockWithCond>>([]);
 const conditionOptions = [
-  { title: "Reissued", value: "reissued" },
+  { title: "Issued", value: "issued" },
   { title: "Good Condition", value: "good-condition" },
   { title: "Returned", value: "returned" },
 ];
