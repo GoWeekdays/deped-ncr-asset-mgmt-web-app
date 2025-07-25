@@ -33,7 +33,7 @@ declare type TAsset = {
   supplier?: string;
   officeId?: string;
   goodCondition: number;
-  reissued: number;
+  issued: number;
   returned: number;
   transferred: number;
   forDisposal: number;
@@ -125,7 +125,7 @@ declare type TOffice = {
 
 declare type TCondition =
   | "returned"
-  | "reissued"
+  | "issued"
   | "transfer"
   | "for-disposal"
   | "for-repair";

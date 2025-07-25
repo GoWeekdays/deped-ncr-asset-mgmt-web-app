@@ -171,12 +171,12 @@
                     <v-col
                       cols="6"
                       class="text-start text-body-2 text-primary-text font-weight-regular"
-                      >Reissued</v-col
+                      >Issued</v-col
                     >
                     <v-col
                       cols="6"
                       class="text-end text-body-2 text-primary-text font-weight-medium"
-                      >{{ assetProperty.sepConditions.reissued }}</v-col
+                      >{{ assetProperty.sepConditions.issued }}</v-col
                     >
 
                     <v-col
@@ -240,12 +240,12 @@
                     <v-col
                       cols="6"
                       class="text-start text-body-2 text-primary-text font-weight-regular"
-                      >Reissued</v-col
+                      >Issued</v-col
                     >
                     <v-col
                       cols="6"
                       class="text-end text-body-2 text-primary-text font-weight-medium"
-                      >{{ assetProperty.ppeConditions.reissued }}</v-col
+                      >{{ assetProperty.ppeConditions.issued }}</v-col
                     >
 
                     <v-col

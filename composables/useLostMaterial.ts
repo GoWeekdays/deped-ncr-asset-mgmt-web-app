@@ -230,7 +230,7 @@ export default function useLostMaterial() {
     assetId: string;
   }) {
     return await useNuxtApp().$api<TStockLossesPaginatedResponse>(
-      `/api/stocks/loss/reissued/${assetId}`,
+      `/api/stocks/loss/issued/${assetId}`,
       {
         method: "GET",
         query: { page, search, limit },

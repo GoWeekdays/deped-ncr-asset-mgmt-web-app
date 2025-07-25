@@ -33,7 +33,7 @@ export default function useAsset() {
       supplier: "",
       officeId: "",
       goodCondition: 0,
-      reissued: 0,
+      issued: 0,
       returned: 0,
       transferred: 0,
       forDisposal: 0,
@@ -76,7 +76,7 @@ export default function useAsset() {
         supplier: "",
         officeId: "",
         goodCondition: 0,
-        reissued: 0,
+        issued: 0,
         returned: 0,
         transferred: 0,
         forDisposal: 0,
@@ -109,7 +109,7 @@ export default function useAsset() {
     asset.value.supplier = value.supplier;
     asset.value.officeId = value.officeId;
     asset.value.goodCondition = value.goodCondition;
-    asset.value.reissued = value.reissued;
+    asset.value.issued = value.issued;
     asset.value.returned = value.returned;
     asset.value.transferred = value.transferred;
     asset.value.forDisposal = value.forDisposal;

@@ -14,7 +14,7 @@ declare type TAssetChartDashboard = {
 declare type TPropertyDashboard = {
   sepConditions: {
     goodCondition: number;
-    reissued: number;
+    issued: number;
     returned: number;
     forDisposal: number;
     transferred: number;
@@ -25,7 +25,7 @@ declare type TPropertyDashboard = {
   };
   ppeConditions: {
     goodCondition: number;
-    reissued: number;
+    issued: number;
     returned: number;
     forDisposal: number;
     transferred: number;

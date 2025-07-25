@@ -29,7 +29,7 @@ export default function useTransfer() {
           _id: "",
           cost: 0,
           itemNo: "",
-          condition: "reissued",
+          condition: "issued",
           type: "",
           reference: "",
           createdAt: new Date().toDateString().slice(4),

@@ -111,16 +111,16 @@
                   Good Condition
                 </v-chip>
                 <v-chip
-                  v-if="item.reissued"
+                  v-if="item.issued"
                   color="blue"
                   class="text-capitalize px-2 mx-1 my-1"
                   size="small"
                 >
                   <v-icon size="small" class="me-1">mdi-circle</v-icon
                   ><span class="font-weight-bold mr-1">{{
-                    item.reissued
+                    item.issued
                   }}</span>
-                  Reissued
+                  Issued
                 </v-chip>
                 <v-chip
                   v-if="item.returned"
@@ -262,7 +262,7 @@
                     <v-list-item
                       v-if="
                         item.goodCondition > 0 &&
-                        !item.reissued &&
+                        !item.issued &&
                         !item.transferred &&
                         !item.returned &&
                         !item.forDisposal &&
@@ -467,7 +467,7 @@ function getStatusColor(status: string): string {
   switch (status) {
     case "good-condition":
       return "green";
-    case "reissued":
+    case "issued":
       return "blue";
     case "returned":
       return "yellow";
