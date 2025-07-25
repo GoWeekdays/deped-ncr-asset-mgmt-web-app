@@ -277,7 +277,7 @@ _getDivisions();
 
 function getDivisionActionText(action: "Add" | "Update"): string {
   if (isDivision.value) {
-    return `${action} DepEd Division`;
+    return `${action} Functional Division`;
   }
   if (isSchool.value) {
     return `${action} School Division`;

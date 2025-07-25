@@ -13,7 +13,7 @@
               class="font-weight-regular text-capitalize"
               :class="{ 'text-h6': !isDesktop, 'text-h4': isDesktop }"
             >
-              DepEd Division
+              Functional Division
             </h1>
           </v-col>
           <v-col cols="auto" class="d-flex align-center justify-end">
@@ -90,7 +90,7 @@
                       <v-icon size="medium" class="me-2"
                         >mdi-pencil-outline</v-icon
                       >
-                      Update DepEd Division
+                      Update Functional Division
                     </v-list-item>
                     <v-list-item
                       @click="
@@ -118,10 +118,10 @@
             <v-col cols="12" class="pb-5">
               <v-row justify="start">
                 <span v-if="division._id" class="font-weight-regular text-h5">
-                  Update DepEd Division
+                  Update Functional Division
                 </span>
                 <span v-else class="font-weight-regular text-h5">
-                  Add DepEd Division
+                  Add Functional Division
                 </span>
               </v-row>
             </v-col>
@@ -220,7 +220,7 @@ definePageMeta({
   middleware: ["auth", "personnel"],
 });
 
-usePageTitle("DepEd Divisions");
+usePageTitle("Functional Divisions");
 
 const {
   getDivisions,
