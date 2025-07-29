@@ -132,11 +132,6 @@ const headers = computed<
   { title: "Date Issued", value: "issuedAt" },
   { title: "ICS/PAR No.", value: "reference" },
   { title: "Personnel", value: "personnel" },
-  {
-    title: "Action",
-    value: "action",
-    align: "center",
-  },
 ]);
 
 const id = computed(() => {
