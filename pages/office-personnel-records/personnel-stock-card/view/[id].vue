@@ -164,17 +164,14 @@
                     </v-icon>
                   </template>
                   <v-list>
-                    <v-list-item
-                      :to="{
-                        name: 'assets-consumables-stock-card-id',
-                        params: { id: item.assetId },
-                      }"
-                    >
-                      <template v-slot:prepend>
-                        <v-icon size="medium">mdi-eye-outline</v-icon>
-                      </template>
-                      Property Card
-                    </v-list-item>
+<v-list-item
+  :to="`/assets/${assetType(item.type)}/property-card/${item.assetId}`"
+>
+  <template v-slot:prepend>
+    <v-icon size="medium">mdi-eye-outline</v-icon>
+  </template>
+  Property Card
+</v-list-item>
                   </v-list>
                 </v-menu>
               </template>
@@ -191,10 +188,21 @@ definePageMeta({
   middleware: ["auth", "personnel"],
 });
 
+
+
 const { getOrigin, getStatusColor, isPersonnel } = useUtils();
 
 const { currentUser } = useLocalAuth();
 const loading = ref(false);
+
+function assetType(label: string): string {
+  if (!label) return "";
+  const map: Record<string, string> = {
+    SEP: "semi-expandable-property",
+    PPE: "property-plant-and-equipment",
+  };
+  return map[label.toUpperCase()] || label;
+}
 
 const headers = computed<
   { title: string; value: string; align?: "start" | "end" | "center" }[]
