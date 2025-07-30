@@ -99,7 +99,6 @@ export default function useUtils() {
       case "completed":
       case "accepted":
       case "good-condition":
-      case "issued":
         return "#65AF4B";
 
       case "suspended":
