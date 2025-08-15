@@ -159,6 +159,12 @@
                             }}
                           </template>
 
+                          <template #item.description="{ item }">
+                            <span
+                              >{{ item.name }} - {{ item.description }}</span
+                            >
+                          </template>
+
                           <template #item.actions="{ item, index }">
                             <v-row
                               align="center"
@@ -666,6 +672,10 @@
                 {{ new Date(item.issuedAt).toDateString().slice(4) }}
               </template>
 
+              <template #item.description="{ item }">
+                <span>{{ item.name }} - {{ item.description }}</span>
+              </template>
+
               <template v-slot:item.cost="{ item }">
                 ₱&nbsp;{{ formatNumber(item.cost) }}
               </template>
@@ -876,6 +886,7 @@ const _getLostById = async () => {
         itemNo: item.itemNo,
         stockId: item.stockId,
         stockNumber: item.stockNumber,
+        name: item.name,
         description: item.description,
         cost: item.cost,
         issuedAt: item.issuedAt,

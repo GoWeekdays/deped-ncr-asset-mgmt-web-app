@@ -77,6 +77,7 @@ declare type TIssueLoss = {
   itemNo: string;
   stockId: string;
   stockNumber: string;
+  name: string;
   description: string;
   cost: number;
   issuedAt: string;

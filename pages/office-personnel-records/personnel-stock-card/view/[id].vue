@@ -148,6 +148,12 @@
                 </v-chip>
               </template>
 
+              <template #item.name="{ item }">
+                {{
+                  item.name + (item.description ? " - " + item.description : "")
+                }}
+              </template>
+
               <template #item.date="{ item }">
                 {{ new Date(item.date).toDateString().slice(4) }}
               </template>
@@ -164,14 +170,14 @@
                     </v-icon>
                   </template>
                   <v-list>
-<v-list-item
-  :to="`/assets/${assetType(item.type)}/property-card/${item.assetId}`"
->
-  <template v-slot:prepend>
-    <v-icon size="medium">mdi-eye-outline</v-icon>
-  </template>
-  Property Card
-</v-list-item>
+                    <v-list-item
+                      :to="`/assets/${assetType(item.type)}/property-card/${item.assetId}`"
+                    >
+                      <template v-slot:prepend>
+                        <v-icon size="medium">mdi-eye-outline</v-icon>
+                      </template>
+                      Property Card
+                    </v-list-item>
                   </v-list>
                 </v-menu>
               </template>
@@ -187,8 +193,6 @@
 definePageMeta({
   middleware: ["auth", "personnel"],
 });
-
-
 
 const { getOrigin, getStatusColor, isPersonnel } = useUtils();
 

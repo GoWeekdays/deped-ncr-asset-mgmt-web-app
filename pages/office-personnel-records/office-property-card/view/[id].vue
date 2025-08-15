@@ -106,6 +106,12 @@
             <template #item.issuedAt="{ item }">
               {{ new Date(item.issuedAt).toDateString().slice(4) }}
             </template>
+
+            <template #item.name="{ item }">
+              {{
+                item.name + (item.description ? " - " + item.description : "")
+              }}
+            </template>
           </v-data-table>
         </v-col>
       </v-card>
