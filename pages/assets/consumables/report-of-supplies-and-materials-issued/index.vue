@@ -7,7 +7,9 @@
             <BackButton />
           </v-col>
           <v-col cols="6" class="text-center">
-            <h4 class="text-h4 font-weight-regular text-primary text-uppercase mb-0">
+            <h4
+              class="text-h4 font-weight-regular text-primary text-uppercase mb-0"
+            >
               REPORT OF SUPPLIES AND MATERIALS ISSUED
             </h4>
           </v-col>
@@ -18,10 +20,16 @@
               </template>
               <v-list class="text-primary-text">
                 <v-list-item>
-                  <v-list-item-title :to="{
-                    name: 'assets-consumables-report-on-the-physical-count-of-inventories-print',
-                  }" @click="preparePrintData" class="cursor-pointer">
-                    <v-icon size="small" class="me-2">mdi-printer-outline</v-icon>
+                  <v-list-item-title
+                    :to="{
+                      name: 'assets-consumables-report-on-the-physical-count-of-inventories-print',
+                    }"
+                    @click="preparePrintData"
+                    class="cursor-pointer"
+                  >
+                    <v-icon size="small" class="me-2"
+                      >mdi-printer-outline</v-icon
+                    >
                     Print
                   </v-list-item-title>
                 </v-list-item>
@@ -34,17 +42,24 @@
 
         <v-row class="py-4">
           <v-col cols="6">
-            <label class="text-fontgray text-body-2 font-weight-medium">Entity Name</label>
+            <label class="text-fontgray text-body-2 font-weight-medium"
+              >Entity Name</label
+            >
             <div>{{ entityName }}</div>
           </v-col>
           <v-col cols="6">
-            <label class="text-fontgray text-body-2 font-weight-medium">Fund Cluster</label>
+            <label class="text-fontgray text-body-2 font-weight-medium"
+              >Fund Cluster</label
+            >
             <div>{{ fundCluster }}</div>
           </v-col>
           <v-col cols="6">
-            <label class="text-fontgray text-body-2 font-weight-medium">Date</label>
-            <div v-if="createdAt">{{ new Date(createdAt).toDateString().slice(4) }}</div>
-
+            <label class="text-fontgray text-body-2 font-weight-medium"
+              >Date</label
+            >
+            <div v-if="createdAt">
+              {{ new Date(createdAt).toDateString().slice(4) }}
+            </div>
           </v-col>
         </v-row>
 
@@ -54,13 +69,27 @@
               <v-row class="grid-container" align="center">
                 <v-col cols="12" sm="5">
                   <input-label for="risNo" title="RIS No." />
-                  <v-autocomplete v-model="selectedRis" :items="itemOptions" item-title="title" item-value="value"
-                    variant="outlined" density="compact" placeholder="Select an Item" hide-no-data hide-selected
-                    return-object />
+                  <v-autocomplete
+                    v-model="selectedRis"
+                    :items="itemOptions"
+                    item-title="title"
+                    item-value="value"
+                    variant="outlined"
+                    density="compact"
+                    placeholder="Select an Item"
+                    hide-no-data
+                    hide-selected
+                    return-object
+                  />
                 </v-col>
 
                 <v-col cols="12" sm="2">
-                  <v-btn color="primary" block @click="addItem" :disabled="!selectedRis">
+                  <v-btn
+                    color="primary"
+                    block
+                    @click="addItem"
+                    :disabled="!selectedRis"
+                  >
                     Enter
                   </v-btn>
                 </v-col>
@@ -71,13 +100,26 @@
 
         <v-row class="mt-5">
           <v-col cols="12">
-            <v-data-table :items="requisition" :headers="headers" item-value="_id" fixed-header class="text-capitalize"
-              hide-default-footer :items-per-page="-1"> <template v-slot:item.cost="{ item }">
+            <v-data-table
+              :items="requisition"
+              :headers="headers"
+              item-value="_id"
+              fixed-header
+              class="text-capitalize"
+              hide-default-footer
+              :items-per-page="-1"
+            >
+              <template v-slot:item.cost="{ item }">
                 ₱&nbsp;{{ formatNumber(item.cost) }}
+              </template>
+
+              <template v-slot:item.name="{ item }">
+                {{ item.name }} - {{ item.description }}
               </template>
               <template v-slot:item.amount="{ item }">
                 ₱&nbsp;{{ formatNumber(item.amount) }}
-              </template></v-data-table>
+              </template></v-data-table
+            >
           </v-col>
         </v-row>
 
@@ -225,5 +267,4 @@ const preparePrintData = async () => {
     name: "assets-consumables-report-of-supplies-and-materials-issued-print",
   });
 };
-
 </script>

@@ -175,6 +175,10 @@
                       <template v-slot:item.cost="{ item }">
                         ₱&nbsp;{{ formatNumber(item.cost) }}
                       </template>
+
+                      <template v-slot:item.description="{ item }">
+                        <span>{{ item.name }} - {{ item.description }}</span>
+                      </template>
                     </v-data-table>
                   </v-col>
                 </v-row>

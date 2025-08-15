@@ -1,22 +1,38 @@
 <template>
   <v-row no-gutters justify="center">
-    <v-col no-gutters class="fill-height px-5 custom-font a4-landscape" justify="center" align-content="center">
-      <div class="text-end font-weight-regular text-capitalize mb-2 font-times th-15px" style="font-style: italic">
+    <v-col
+      no-gutters
+      class="fill-height px-5 custom-font a4-landscape"
+      justify="center"
+      align-content="center"
+    >
+      <div
+        class="text-end font-weight-regular text-capitalize mb-2 font-times th-15px"
+        style="font-style: italic"
+      >
         Appendix 66
       </div>
-      <div class="text-center font-weight-bold text-capitalize mb-5 font-times" style="font-size: 16pt !important">
+      <div
+        class="text-center font-weight-bold text-capitalize mb-5 font-times"
+        style="font-size: 16pt !important"
+      >
         REPORT ON THE PHYSICAL COUNT OF INVENTORIES
       </div>
       <div class="text-center">
-        <span class="font-times" style="font-size: 12pt !important">Consumables</span>
+        <span class="font-times" style="font-size: 12pt !important"
+          >Consumables</span
+        >
       </div>
 
       <v-row justify="center">
-        <v-col class="text-center font-times mt-2 px-2 mb-2" style="
+        <v-col
+          class="text-center font-times mt-2 px-2 mb-2"
+          style="
             font-size: 10pt !important;
             border-top: 1px solid black;
             max-width: 30%;
-          ">
+          "
+        >
           (Type of Inventory Item)
         </v-col>
       </v-row>
@@ -31,7 +47,10 @@
       </div>
 
       <div class="d-flex mb-2">
-        <div class="font-times" style="font-size: 11pt !important; font-weight: bold">
+        <div
+          class="font-times"
+          style="font-size: 11pt !important; font-weight: bold"
+        >
           Fund Cluster:
           <u class="font-times" style="font-size: 12pt !important">{{
             fundCluster
@@ -39,15 +58,28 @@
         </div>
       </div>
 
-      <div class="mb-2 font-times" style="font-size: 11pt !important; font-weight: bold">
+      <div
+        class="mb-2 font-times"
+        style="font-size: 11pt !important; font-weight: bold"
+      >
         For which
-        <span class="underline font-times" style="font-size: 11pt !important; font-style: italic !important">Jocelyn DR.
-          Andaya</span>,
-        <span class="underline font-times" style="font-size: 11pt !important; font-style: italic !important">Director
-          IV, DepEd NCR</span>
+        <span
+          class="underline font-times"
+          style="font-size: 11pt !important; font-style: italic !important"
+          >Jocelyn DR. Andaya</span
+        >,
+        <span
+          class="underline font-times"
+          style="font-size: 11pt !important; font-style: italic !important"
+          >Director IV, DepEd NCR</span
+        >
         is accountable, having assumed such accountability on
-        <span class="underline font-times" style="font-size: 11pt !important; font-style: italic !important">
-          November 16, 2021</span>.
+        <span
+          class="underline font-times"
+          style="font-size: 11pt !important; font-style: italic !important"
+        >
+          November 16, 2021</span
+        >.
       </div>
 
       <table style="font-size: 11pt !important" class="table-container">
@@ -73,33 +105,48 @@
         <tbody>
           <tr v-for="(item, index) in items" :key="index">
             <td class="custom-height">{{ item.article }}</td>
-            <td class="custom-height">{{ item.description }}</td>
+            <td class="custom-height">
+              {{ item.name }} - {{ item.description }}
+            </td>
             <td class="custom-height">{{ item.stockNumber }}</td>
             <td class="custom-height">{{ item.unitOfMeasurement }}</td>
-            <td class="custom-height"> ₱&nbsp;{{ formatNumber(item.cost) }}</td>
+            <td class="custom-height">₱&nbsp;{{ formatNumber(item.cost) }}</td>
             <td class="custom-height">{{ item.quantity }}</td>
             <td class="custom-height">{{ item.onHandPerCount }}</td>
             <td class="custom-height">{{ item.shortageQuantity }}</td>
-            <td class="custom-height"> ₱&nbsp;{{ formatNumber(item.shortageValue) }}</td>
+            <td class="custom-height">
+              ₱&nbsp;{{ formatNumber(item.shortageValue) }}
+            </td>
             <td class="custom-height">{{ item.remarks }}</td>
           </tr>
         </tbody>
 
         <tfoot>
           <tr>
-            <td colspan="3" class="align-left no-bottom-border no-right-border padding-bottom padding-left-top">
+            <td
+              colspan="3"
+              class="align-left no-bottom-border no-right-border padding-bottom padding-left-top"
+            >
               Certified Correct by:
             </td>
-            <td colspan="5"
-              class="align-left no-bottom-border no-right-border no-left-border padding-bottom padding-left-top">
+            <td
+              colspan="5"
+              class="align-left no-bottom-border no-right-border no-left-border padding-bottom padding-left-top"
+            >
               Approved by:
             </td>
-            <td colspan="2" class="align-left no-bottom-border no-left-border padding-bottom padding-left-top">
+            <td
+              colspan="2"
+              class="align-left no-bottom-border no-left-border padding-bottom padding-left-top"
+            >
               Verified by:
             </td>
           </tr>
           <tr>
-            <td class="no-top-border no-right-border vertical-top padding-bottom custom-px-sm" colspan="3">
+            <td
+              class="no-top-border no-right-border vertical-top padding-bottom custom-px-sm"
+              colspan="3"
+            >
               <div class="text-primary-text text-center font-times">
                 {{ certifiedBy }}
               </div>
@@ -109,8 +156,10 @@
                 Members
               </div>
             </td>
-            <td class="no-top-border no-right-border no-left-border vertical-top padding-bottom custom-px-md"
-              colspan="5">
+            <td
+              class="no-top-border no-right-border no-left-border vertical-top padding-bottom custom-px-md"
+              colspan="5"
+            >
               <div class="text-primary-text text-center font-times">
                 {{ approvedBy }}
               </div>
@@ -121,7 +170,10 @@
               </div>
             </td>
 
-            <td colspan="2" class="no-top-border no-left-border mb-10 vertical-top padding-bottom custom-px-sm">
+            <td
+              colspan="2"
+              class="no-top-border no-left-border mb-10 vertical-top padding-bottom custom-px-sm"
+            >
               <div class="text-primary-text text-center font-times">
                 {{ verifiedBy }}
               </div>
@@ -162,8 +214,6 @@ const approvedBy = ref("Joyce DR. Andaya");
   background-color: white;
 }
 
-
-
 table {
   width: 100%;
   border: 1px solid black;
@@ -182,7 +232,6 @@ th {
   text-align: center;
   font-family: "Times New Roman", Times, serif !important;
 }
-
 
 .align-left {
   text-align: left;
@@ -225,8 +274,6 @@ th {
 .font-times {
   font-family: "Times New Roman", Times, serif !important;
 }
-
-
 
 .underline {
   border-bottom: 1px solid black;

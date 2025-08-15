@@ -20,6 +20,8 @@ declare type TPersonnelStockCard = {
   condition: string;
   type: string;
   date: string;
+  name: string;
+  description;
   quantity: number;
   ICS: string;
   status: string;

@@ -1,22 +1,39 @@
 <template>
   <v-row no-gutters justify="center">
-    <v-col no-gutters class="fill-height px-10 custom-font a4-landscape" justify="center" align-content="center">
-      <div class="text-end font-weight-regular text-capitalize mb-2 font-times th-15px" style=" font-style: italic;">
+    <v-col
+      no-gutters
+      class="fill-height px-10 custom-font a4-landscape"
+      justify="center"
+      align-content="center"
+    >
+      <div
+        class="text-end font-weight-regular text-capitalize mb-2 font-times th-15px"
+        style="font-style: italic"
+      >
         Appendix 63
       </div>
-      <div class="text-center font-weight-bold text-capitalize mb-10 font-times" style="font-size: 16pt !important">
+      <div
+        class="text-center font-weight-bold text-capitalize mb-10 font-times"
+        style="font-size: 16pt !important"
+      >
         REQUISITION AND ISSUE SLIPS
       </div>
 
       <v-row class="mb-2" align="start" justify="start">
         <v-col cols="6" class="text-left">
-          <div class="font-times" style="font-size: 11pt !important; font-weight: bold">
+          <div
+            class="font-times"
+            style="font-size: 11pt !important; font-weight: bold"
+          >
             Entity Name: {{ requisition.entityName }}
           </div>
         </v-col>
 
         <v-col cols="6" class="text-left">
-          <div class="font-times" style="font-size: 11pt !important; font-weight: bold">
+          <div
+            class="font-times"
+            style="font-size: 11pt !important; font-weight: bold"
+          >
             Fund Cluster: {{ requisition.fundCluster }}
           </div>
         </v-col>
@@ -27,29 +44,48 @@
           <tr>
             <th colspan="5" class="text-start text-capitalize">
               Division:
-              <u class="th-12px font-times font-weight-regular">{{ requisition.division }}</u>
+              <u class="th-12px font-times font-weight-regular">{{
+                requisition.division
+              }}</u>
             </th>
             <th colspan="5" class="text-start">
               Responsibility Center Code:
-              <u class="th-12px font-times font-weight-regular">{{ requisition.rcc }}</u>
+              <u class="th-12px font-times font-weight-regular">{{
+                requisition.rcc
+              }}</u>
             </th>
           </tr>
           <tr>
             <th colspan=" 5" class="text-start">
-              Office: <u class="th-12px font-times font-weight-regular">{{ requisition.office }}</u>
+              Office:
+              <u class="th-12px font-times font-weight-regular">{{
+                requisition.office
+              }}</u>
             </th>
             <th colspan="6" class="text-start">
-              RIS No: <u class="th-12px font-times font-weight-regular">{{ requisition.risNo }}</u>
+              RIS No:
+              <u class="th-12px font-times font-weight-regular">{{
+                requisition.risNo
+              }}</u>
             </th>
           </tr>
           <tr>
-            <th colspan="4" class="text-center font-weight-bold font-italic text-body-2">
+            <th
+              colspan="4"
+              class="text-center font-weight-bold font-italic text-body-2"
+            >
               Requisition
             </th>
-            <th colspan="2" class="text-center font-weight-bold font-italic text-body-2">
+            <th
+              colspan="2"
+              class="text-center font-weight-bold font-italic text-body-2"
+            >
               Stock Available?
             </th>
-            <th colspan="3" class="text-center font-weight-bold font-italic text-body-2">
+            <th
+              colspan="3"
+              class="text-center font-weight-bold font-italic text-body-2"
+            >
               Issue
             </th>
           </tr>
@@ -68,32 +104,44 @@
         <tbody>
           <tr v-for="index in 12" :key="index">
             <td class="custom-height th-12px">
-              {{ requisition.itemStocks[index - 1]?.stockNumber || '' }}
+              {{ requisition.itemStocks[index - 1]?.stockNumber || "" }}
             </td>
             <td class="custom-height th-12px">
-              {{ requisition.itemStocks[index - 1]?.unitOfMeasurement || '' }}
+              {{ requisition.itemStocks[index - 1]?.unitOfMeasurement || "" }}
             </td>
             <td class="custom-height th-12px">
-              {{ requisition.itemStocks[index - 1]?.description || '' }}
+              {{
+                requisition.itemStocks[index - 1]
+                  ? `${requisition.itemStocks[index - 1].name}${requisition.itemStocks[index - 1].description ? " - " + requisition.itemStocks[index - 1].description : ""}`
+                  : ""
+              }}
+            </td>
+
+            <td class="custom-height th-12px">
+              {{ requisition.itemStocks[index - 1]?.requestQty || "" }}
             </td>
             <td class="custom-height th-12px">
-              {{ requisition.itemStocks[index - 1]?.requestQty || '' }}
-            </td>
-            <td class="custom-height th-12px">
-              {{ requisition.itemStocks[index - 1]?.isAvailable === "yes" ? "Yes" : "" }}
+              {{
+                requisition.itemStocks[index - 1]?.isAvailable === "yes"
+                  ? "Yes"
+                  : ""
+              }}
             </td>
             <td class="custom-height">
-              {{ requisition.itemStocks[index - 1]?.isAvailable === "no" ? "No" : "" }}
+              {{
+                requisition.itemStocks[index - 1]?.isAvailable === "no"
+                  ? "No"
+                  : ""
+              }}
             </td>
             <td class="custom-height th-12px">
-              {{ requisition.itemStocks[index - 1]?.issueQty || '' }}
+              {{ requisition.itemStocks[index - 1]?.issueQty || "" }}
             </td>
             <td class="custom-height th-12px" colspan="2">
-              {{ requisition.itemStocks[index - 1]?.remarks || '' }}
+              {{ requisition.itemStocks[index - 1]?.remarks || "" }}
             </td>
           </tr>
         </tbody>
-
       </table>
 
       <table>
@@ -142,8 +190,6 @@
           <tr>
             <td style="text-align: left; vertical-align: top">Date:</td>
             <td class="th-12px">
-
-
               {{
                 requisition.createdAt
                   ? new Date(requisition.createdAt).toDateString().slice(4)
@@ -221,7 +267,6 @@ _getRequisition();
   font-weight: 400;
   font-family: "Times New Roman", Times, serif;
 }
-
 
 .custom-divider-one {
   width: 20rem;

@@ -2,16 +2,29 @@
   <v-row fill-height justify="center" align="start">
     <v-col cols="12" sm="10" md="10" lg="12">
       <v-card class="pa-6 rounded-lg">
-        <v-menu location="bottom end" :close-on-content-click="false" :nudge-left="16" :z-index="99">
+        <v-menu
+          location="bottom end"
+          :close-on-content-click="false"
+          :nudge-left="16"
+          :z-index="99"
+        >
           <template v-slot:activator="{ props }">
-            <v-icon v-bind="props" class="position-absolute" style="top: 16px; right: 16px; z-index: 1">
+            <v-icon
+              v-bind="props"
+              class="position-absolute"
+              style="top: 16px; right: 16px; z-index: 1"
+            >
               mdi-dots-horizontal
             </v-icon>
           </template>
           <v-list>
-            <v-list-item :to="{
-              name: 'assets-consumables-report-on-the-physical-count-of-inventories-print',
-            }" @click="preparePrintData" class="cursor-pointer">
+            <v-list-item
+              :to="{
+                name: 'assets-consumables-report-on-the-physical-count-of-inventories-print',
+              }"
+              @click="preparePrintData"
+              class="cursor-pointer"
+            >
               <v-list-item-title>
                 <v-icon size="small" class="me-2">mdi-printer-outline</v-icon>
                 <span class="text-subtitle-2">Print</span>
@@ -21,24 +34,41 @@
         </v-menu>
         <v-row class="py-4" justify="center" align="center">
           <v-col cols="12" class="text-center text-primary-text">
-            <h4 class="text-h4 font-weight-regular text-primary text-uppercase mb-0">
+            <h4
+              class="text-h4 font-weight-regular text-primary text-uppercase mb-0"
+            >
               REPORT ON THE PHYSICAL COUNT OF INVENTORIES
             </h4>
             <v-row class="mt-1" justify="center" align="center">
               <v-col cols="auto">
-                <span class="text-subtitle-1 text-primary-text font-weight-regular">
+                <span
+                  class="text-subtitle-1 text-primary-text font-weight-regular"
+                >
                   Type of Inventory Item:
-                  <span class="text-decoration-underline font-weight-medium text-body-1">Consumables</span>
+                  <span
+                    class="text-decoration-underline font-weight-medium text-body-1"
+                    >Consumables</span
+                  >
                 </span>
               </v-col>
             </v-row>
             <v-row class="mt-1" justify="center" align="center">
               <v-col cols="auto">
-                <span class="mr-2 text-subtitle-1 text-primary-text">As at:</span>
+                <span class="mr-2 text-subtitle-1 text-primary-text"
+                  >As at:</span
+                >
               </v-col>
               <v-col cols="auto">
-                <v-text-field v-model="reportDate" hide-details placeholder="Date" type="date" class="mb-2"
-                  density="compact" variant="plain" style="max-width: 200px" />
+                <v-text-field
+                  v-model="reportDate"
+                  hide-details
+                  placeholder="Date"
+                  type="date"
+                  class="mb-2"
+                  density="compact"
+                  variant="plain"
+                  style="max-width: 200px"
+                />
               </v-col>
             </v-row>
           </v-col>
@@ -47,7 +77,8 @@
         <v-divider></v-divider>
         <v-row class="py-4">
           <v-col class="text-body-2 text-primary-text" cols="12">
-            Fund Cluster: {{ reportData.fundCluster || "N/A" }}</v-col>
+            Fund Cluster: {{ reportData.fundCluster || "N/A" }}</v-col
+          >
           <v-col cols="12">
             <span class="text-body-2 text-primary-text">
               For which Jocelyn DR. Andaya, Director IV, DepEd NCR, is
@@ -61,20 +92,35 @@
 
         <v-row class="mt-5">
           <v-col cols="12">
-            <v-data-table :items="assets" :headers="headers" item-value="_id" fixed-header class="text-capitalize"
-              hide-default-footer :items-per-page="-1">
-
-
+            <v-data-table
+              :items="assets"
+              :headers="headers"
+              item-value="_id"
+              fixed-header
+              class="text-capitalize"
+              hide-default-footer
+              :items-per-page="-1"
+            >
               <template v-slot:[`item.cost`]="{ item }">
                 ₱&nbsp;{{ formatNumber(item.cost) }}
+              </template>
+
+              <template v-slot:[`item.description`]="{ item }">
+                {{ item.name }} - {{ item.description }}
               </template>
 
               <template v-slot:[`item.quantity`]="{ item }">
                 <span>{{ item.quantity }}</span>
               </template>
               <template v-slot:[`item.onHandPerCount`]="{ item }">
-                <v-text-field v-model="item.onHandPerCount" type="number" density="compact" hide-details="auto" min="0"
-                  @update:modelValue="updateShortage(item)"></v-text-field>
+                <v-text-field
+                  v-model="item.onHandPerCount"
+                  type="number"
+                  density="compact"
+                  hide-details="auto"
+                  min="0"
+                  @update:modelValue="updateShortage(item)"
+                ></v-text-field>
               </template>
 
               <template v-slot:[`item.shortageQuantity`]="{ item }">
@@ -84,7 +130,11 @@
                 <span>₱&nbsp;{{ formatNumber(item.shortageValue) }}</span>
               </template>
               <template v-slot:[`item.remarks`]="{ item }">
-                <v-text-field v-model="item.remarks" density="compact" hide-details></v-text-field>
+                <v-text-field
+                  v-model="item.remarks"
+                  density="compact"
+                  hide-details
+                ></v-text-field>
               </template>
             </v-data-table>
           </v-col>
@@ -112,7 +162,12 @@
           </v-col>
           <v-col cols="4">
             <label class="text-primary">Verified by</label>
-            <v-text-field v-model="verifiedBy" class="ma-0" density="compact" variant="outlined"></v-text-field>
+            <v-text-field
+              v-model="verifiedBy"
+              class="ma-0"
+              density="compact"
+              variant="outlined"
+            ></v-text-field>
             <div class="text-caption mt-0">COA Representative</div>
           </v-col>
         </v-row>
@@ -123,7 +178,7 @@
 
 <script setup>
 const { getConsumablePrint, assets } = useAsset();
-const { formatNumber } = useUtils()
+const { formatNumber } = useUtils();
 const loading = ref(false);
 
 const reportData = ref({

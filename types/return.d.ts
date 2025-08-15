@@ -5,6 +5,7 @@ declare type TReturn = {
   createdAt: string;
   itemStocks: Array<{
     stockId: string;
+    name: string;
     description: string;
     quantity: string;
     reference: string;

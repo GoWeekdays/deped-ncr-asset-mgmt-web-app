@@ -23,6 +23,8 @@ declare type TItemStock = {
   assetName: string;
   assetQuantity: number;
   ICS: string;
+  name?: string;
+  description?: string;
   personnel: string;
   issuedAt: string;
   status: string;

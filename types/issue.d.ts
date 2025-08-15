@@ -6,6 +6,7 @@ declare type TIssue = {
   fundCluster: string;
   description: string;
   unitOfMeasurement: string;
+  name: string;
   cost: number;
   itemNo: string;
   quantity: number;

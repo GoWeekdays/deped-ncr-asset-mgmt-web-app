@@ -119,7 +119,9 @@
         <tbody>
           <tr v-for="(item, index) in items" :key="index">
             <td class="custom-height">{{ item.article }}</td>
-            <td class="custom-height">{{ item.description }}</td>
+            <td class="custom-height">
+              {{ item.name }} - {{ item.description }}
+            </td>
             <td class="custom-height">{{ item.stockNumber }}</td>
             <td class="custom-height">{{ item.unitOfMeasurement }}</td>
             <td class="custom-height">₱&nbsp;{{ formatNumber(item.cost) }}</td>

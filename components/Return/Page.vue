@@ -150,6 +150,10 @@
                 </v-col>
               </template>
 
+              <template #item.description="{ item }">
+                <span>{{ item.name }} - {{ item.description }}</span>
+              </template>
+
               <template #item.quantity="{ item }">
                 <div class="text-caption text-capitalize">1</div>
               </template>
@@ -492,6 +496,7 @@ const _getReturnById = async () => {
     const result = await getReturnById(id.value);
     const formattedItemStocks = result.itemStocks.map((item: any) => ({
       stockId: item.stockId || "",
+      name: item.name || name,
       description: item.description || "",
       quantity: item.quantity || "",
       reference: item.reference || "",
