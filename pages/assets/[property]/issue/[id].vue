@@ -364,7 +364,7 @@ const fetchingUsers = ref(false);
 const fetchUsers = debounce(async (search = "") => {
   fetchingUsers.value = true;
   try {
-    const { items } = await getUsers({ limit: 20, search });
+    const { items } = await getUsers({ limit: 50, search });
     userOptions.value = items.map((user: any) => ({
       _id: user._id,
       name: user.name,
